@@ -16,6 +16,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
 gem 'cancan'
 gem 'devise'
+gem 'paperclip'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
