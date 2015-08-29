@@ -20,6 +20,7 @@ gem 'paperclip'
 gem 'dotenv-rails', groups: [:development]
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'aws-sdk'
+gem 'friendly_id'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
