@@ -1,35 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+<div class="row">
 
-<h1>Listing Books</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Author</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Availibility</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= form_tag books_path, class: "navbar-form navbar-right", :method => 'get' do %>
+  
+  <%= field_set_tag 'Book Name' do %>
+    <%= text_field_tag :search, params[:search], class: "form-control" %>
+  <% end %>
+  <%= field_set_tag 'Author' do %>
+    <%= select_tag :author, options_from_collection_for_select(Book.group(:author), "author", "author", :selected => params[:author]), :include_blank => true, class: "form-control" %>
+  <% end %>
+  <%= field_set_tag 'Price Range' do %>
+    <p>Min Price</p>
+    <%= text_field_tag :min_price, params[:min_price], class: "form-control col-lg-1" %>
+    <p>Max Price</p>
+    <%= text_field_tag :max_price, params[:max_price], class: "form-control col-lg-1" %>
+  <% end %>
 
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= book.name %></td>
-        <td><%= book.author %></td>
-        <td><%= book.description %></td>
-        <td><%= book.price %></td>
-        <td><%= book.availibility %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <hr>
+    <%= submit_tag "Search", class: "form-control", :name => nil  %>
 
-<br>
+<% end %>
 
-<%= link_to 'New Book', new_book_path %>
+<%= render @books %>
+
+</div>
+</div>
